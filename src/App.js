@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import Login from './components/Login/Login';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="/login">
+          <Login />
           </Route>
           <Route path="*">
             <PageNotFound />
