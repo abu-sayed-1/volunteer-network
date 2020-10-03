@@ -1,0 +1,8 @@
+.home_container{
+    display: grid;
+    justify-content: center;
+    margin-top:60px;
+}
+.home_container Form {
+ margin-left: 17%;
+}
