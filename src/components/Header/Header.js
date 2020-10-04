@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <div>
             <Navbar bg="light" variant="light">
-          <Navbar.Brand href="#home"><img src={logo} alt=""/></Navbar.Brand>
+          <Navbar.Brand href="#"><img src={logo} alt=""/></Navbar.Brand>
                 <Nav className="ml-auto" >
                     <NavLink className="NavLink" to="/home">Home</NavLink>
                     <NavLink className="NavLink" to="/donation">donation</NavLink>

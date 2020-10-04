@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, CardActions, CardActionArea, Card, CardMedia } from '@material-ui/core';
 import { Container, Row, Col } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -24,6 +25,10 @@ const useStyles = makeStyles({
 const HomeInfo = (props) => {
     const classes = useStyles();
     const { id, title, img } = props.data;
+    const history = useHistory()
+    const handleRegister = id => {
+      history.push(`/registerId/${id}`)
+    }
     return (
         <>
         <Card className={classes.root}>
@@ -34,7 +39,7 @@ const HomeInfo = (props) => {
                 />
             </CardActionArea>
             <CardActions className={classes.HomeInfoBtn}>
-                <Button className={classes.titleBtn}style={{outline:'none'}} size="small">
+                <Button onClick={() => handleRegister(id)} className={classes.titleBtn}style={{outline:'none'}} size="small">
                      {title}
                 </Button>
             </CardActions>

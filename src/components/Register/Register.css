@@ -1,0 +1,31 @@
+.register_container{
+    display: grid;
+    justify-content: center;
+    margin: 20px 0px 20px 0px;
+}
+
+.input_container{
+    border: 1px solid rgb(196, 218, 233);
+    padding: 20px;
+}
+
+.register_form input{
+    display: block;
+    margin-top:12px ;
+    width: 370px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgba(196, 218, 233, 0.918);
+}
+
+.registerBtn{
+    line-height: 45px;
+    background-color: rgba(0, 17, 255, 0.767);
+    color: white;
+}
+
+.error{
+    color: red;
+    font-size: 9px;
+}
+ 
