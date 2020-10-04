@@ -3,7 +3,7 @@ body{
 }
 
 .EventTasksChild_container{
-  display: flex;
+  display:inline-block;
 }
 
 .EventTasksChild_container img{
@@ -12,21 +12,20 @@ body{
 
 .row_container{
   border-radius:10px; 
-  padding: 3px; 
+  padding: 13px; 
   background-color: rgb(255, 255, 255); 
+  
 }
 
 .row_1{
-    margin-right: 9px;
-}
-
-.row_2{
-    margin-left: 9px;
+    /* margin-right: 9px; */
+    width: 400px;
+    margin: 13px;
 }
 
 .row_container button{
   position: relative;  
-  margin-top: 50px;
+  /* margin-top: 50px; */
   left: 50%;
   width: 60%;
   height: 20%;

@@ -29,14 +29,17 @@ function App() {
             <Home />
           </Route>
           <Route path="/login">
-            <Route path="register">
-              <Register></Register>
-            </Route>
             <Login />
           </Route>
+          {/* <Route path="/register">
+              <Register></Register>
+            </Route> */}
           <PrivateRoute path="/registerId/:id">
             <Register />
           </PrivateRoute>
+          <Route path="/eventTasks">
+            <EventTasks></EventTasks>
+          </Route>
           {/* <PrivateRoute path="/eventTasks">
             <EventTasks />
           </PrivateRoute> */}

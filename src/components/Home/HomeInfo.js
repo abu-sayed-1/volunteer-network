@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, CardActions, CardActionArea, Card, CardMedia } from '@material-ui/core';
-import { Container, Row, Col } from 'react-bootstrap'
+// import { Container, Row, Col } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({

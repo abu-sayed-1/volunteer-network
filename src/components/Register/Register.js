@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import { UserContext } from '../../App';
 import { useHistory, useParams } from 'react-router-dom';
 import data from "../data.json"
-import Button from 'react-bootstrap/Button'
-import Link from '@material-ui/core/Link';
+// import Button from 'react-bootstrap/Button'
+// import Link from '@material-ui/core/Link';
 // import EventTasks from '../EventTasks/EventTasks';
 
 // import { Button } from "react-Bootstrap"
@@ -38,20 +38,27 @@ const Register = () => {
 
 
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  const { id } = useParams();
+  // const [tasks, setTasks] = useState({
+  //   title:''
+  // })
   const [registration, setRegistration] = useState({
     date: '',
     description: '',
-    title:''
+    // title:''
   });
+  const { id } = useParams();
 
   const userData = data.find(data => data.id == id);
-  setRegistration(userData.title)
+  // setTasks(userData.title);
+  // console.log(userData,'user data register')
+
   const { register, handleSubmit, watch, errors } = useForm();
-  // const history = useHistory()
+  const history = useHistory()
     const onSubmit = () => {
-      // history.push('/eventTasks')
-      const newRegistration = { ...loggedInUser, ...registration };
+      history.push('/eventTasks')
+      // const userTitle = {...tasks}
+      const newRegistration = { ...loggedInUser, ...registration,};
+      // const newId = (userTitle,newRegistration)
         fetch('http://localhost:3200/addRegister', {
           method: 'POST',
           headers: { 'Content-type': 'application/json' },
@@ -66,7 +73,6 @@ const Register = () => {
   
 
   //handle Input Field--------------------
-
   const handleInput = e => {
     let isDescriptionValid = true;
     if (e.target.name === 'description') {
