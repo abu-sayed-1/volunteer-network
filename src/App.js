@@ -11,13 +11,14 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import EventTasks from './components/EventTasks/EventTasks';
 
 export const UserContext = createContext();
 
 function App() {
-  const [loggedInUser,setLoggedInUser] = useState([])
+  const [loggedInUser, setLoggedInUser] = useState([])
   return (
-    <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Header />
         <Switch>
@@ -36,12 +37,15 @@ function App() {
           <PrivateRoute path="/registerId/:id">
             <Register />
           </PrivateRoute>
+          <Route path="/eventTasks">
+            <EventTasks />
+          </Route>
           <Route path="*">
             <PageNotFound />
           </Route>
         </Switch>
       </Router>
-      </UserContext.Provider>
+    </UserContext.Provider>
   );
 }
 
