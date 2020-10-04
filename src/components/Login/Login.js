@@ -19,6 +19,7 @@ const Login = () => {
     const history = useHistory();
     const location = useLocation()
     let {from} = location.state || {form:{pathname:"/"}}
+    
     if (firebase.apps.length === 0) {
         firebase.initializeApp(firebaseConfig)
     }
@@ -32,8 +33,7 @@ const Login = () => {
                     email: email,
                 }
                 setLoggedInUser(isSignedInUser)
-                history.replace(from)
-
+                storeAuthToken()
             }).catch(error => {
                 let errorCode = error.code;
                 let errorMessage = error.message;
@@ -42,6 +42,15 @@ const Login = () => {
             });
     }
 
+    const storeAuthToken = () => {
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+        .then(function(idToken) {
+          sessionStorage.setItem('token', idToken)
+          history.replace(from)
+        }).catch(function(error) {
+          // Handle error
+        });
+      }
 
     return (
         <div className='login_container'>

@@ -4,7 +4,9 @@ import EventTask from "../images/images/extraVolunteer.png"
 import "./EventTasksChild.css"
 
 
-const EventTasksChild = () => {
+const EventTasksChild = (props) => {
+    const {title,name} = props.volunteerData;
+    console.log(props.volunteerData)
     return (
         <div className="EventTasksChild_container" >
             <Row className="row_container row_1">

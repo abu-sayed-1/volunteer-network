@@ -1,11 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext,  useState } from 'react';
 import './Register.css'
 import { useForm } from "react-hook-form";
 import { UserContext } from '../../App';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import data from "../data.json"
 import Button from 'react-bootstrap/Button'
 import Link from '@material-ui/core/Link';
+// import EventTasks from '../EventTasks/EventTasks';
 
 // import { Button } from "react-Bootstrap"
 // import 'date-fns';
@@ -39,57 +40,33 @@ const Register = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const { id } = useParams();
   const [registration, setRegistration] = useState({
-    // comingDate: false,
     date: '',
-    description: ''
+    description: '',
+    title:''
   });
-  // console.log(registration.description, registration.date)
+
   const userData = data.find(data => data.id == id);
-
-
+  setRegistration(userData.title)
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = () => {
-    const newRegistration = { ...registration };
-    const secondItem = { ...loggedInUser }
-    const item = (secondItem,newRegistration)
-    if (newRegistration && secondItem) {
-      // }
-      // const newRegistration = {...registration };
-      // const secondItem = {...loggedInUser}
-      const newItem = (newRegistration, secondItem);
-      // console.log(newRegistration)
-      fetch('http://localhost:3200/addRegister', {
-        method: 'POST',
-        headers: { 'Content-type': 'application/json' },
-        body: JSON.stringify(newItem)
-      })
-        .then(res => res.json())
-        .then(data => {
-          console.log(data, 'rakib khan');
+  // const history = useHistory()
+    const onSubmit = () => {
+      // history.push('/eventTasks')
+      const newRegistration = { ...loggedInUser, ...registration };
+        fetch('http://localhost:3200/addRegister', {
+          method: 'POST',
+          headers: { 'Content-type': 'application/json' },
+          body: JSON.stringify(newRegistration)
         })
-    }
-    else if (item !== true) {
-      console.log('not true blue')
-    }
-  }
-  // ---------------------------------------------
-
-
-  // const handleRegistration = () => {
-  //     const newRegistration = {...loggedInUser, ...registration};
-  //     console.log(newRegistration)
-  //     fetch('http://localhost:3200/addRegister',{
-  //         method:'POST',
-  //         headers: {'Content-type': 'application/json'},
-  //         body:JSON.stringify(newRegistration)
-  //     })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //         console.log(data,'rakib khan');
-  //     })
-  //   }
+          .then(res => res.json())
+          .then(data => {
+            console.log(data, 'rakib khan');
+          })
+      }
+    
+  
 
   //handle Input Field--------------------
+
   const handleInput = e => {
     let isDescriptionValid = true;
     if (e.target.name === 'description') {
@@ -101,7 +78,6 @@ const Register = () => {
     if (isDescriptionValid) {
       const newUserInfo = { ...registration };
       newUserInfo[e.target.name] = e.target.value;
-      // console.log(newUserInfo)
       setRegistration(newUserInfo);
 
     }
@@ -127,9 +103,6 @@ const Register = () => {
           {errors.organize && <span className="error">organize books at the library is required</span>}
           <br />
           <input className="registerBtn" type="submit" value="Registration" />
-          {/* className="registerBtn" */}
-          {/* <Link className="registerBtn"  onSubmit={handleRegistration}>Registration</Link> */}
-          {/* <Button onSubmit={handleRegistration} variant="primary">Registration</Button>  */}
         </form>
 
 
@@ -197,7 +170,7 @@ const Register = () => {
                       </div> */}
 
 
-
+  {/* <EventTasks></EventTasks> */}
       </div>
     </div>
   );

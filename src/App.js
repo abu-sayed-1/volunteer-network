@@ -37,9 +37,9 @@ function App() {
           <PrivateRoute path="/registerId/:id">
             <Register />
           </PrivateRoute>
-          <Route path="/eventTasks">
+          {/* <PrivateRoute path="/eventTasks">
             <EventTasks />
-          </Route>
+          </PrivateRoute> */}
           <Route path="*">
             <PageNotFound />
           </Route>
