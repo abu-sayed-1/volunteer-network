@@ -5,10 +5,10 @@ import "./EventTasksChild.css"
 
 
 const EventTasksChild = (props) => {
-    const { date, email, _id } = props.volunteerData;
+    const { date, _id, tasks } = props.volunteerData;
     const handleDelEvent = props.handleDelEvent;
     const volunteerId = (id) => {
-        fetch(`http://localhost:3200/delete/${id}`, {
+        fetch(`https://frozen-dawn-85435.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
             .then(result => {
@@ -22,11 +22,12 @@ const EventTasksChild = (props) => {
         <div className="EventTasksChild_container" >
             <Row className="row_container row_1">
                 <Col><img src={EventTask} alt="" /></Col>
-                <Col>{date}
-                    <br />
-                    {email}
-                    <br />
-                    <button onClick={() => volunteerId(_id)}>Cancel</button>
+                <Col>
+                    <p>{date}</p>
+                    <p>{tasks}</p>
+                    <div>
+                        <div><button onClick={() => volunteerId(_id)}>Cancel</button></div>
+                    </div>
                 </Col>
             </Row>
 

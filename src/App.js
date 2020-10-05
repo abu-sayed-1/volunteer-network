@@ -15,13 +15,11 @@ import EventTasks from './components/EventTasks/EventTasks';
 
 export const UserContext = createContext();
 export const UserInfo = createContext()
-
 function App() {
   const [loggedInUser, setLoggedInUser] = useState([])
   const [ usersData, setUsersData] = useState([]);
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <UserInfo.Provider value={[usersData, setUsersData]}>
+    <UserContext.Provider value={{loggedInUser,setLoggedInUser, usersData,setUsersData}}>
       <Router>
         <Header />
         <Switch>
@@ -34,24 +32,17 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          {/* <Route path="/register">
-              <Register></Register>
-            </Route> */}
           <PrivateRoute path="/registerId/:id">
             <Register />
           </PrivateRoute>
           <Route path="/eventTasks">
             <EventTasks></EventTasks>
           </Route>
-          {/* <PrivateRoute path="/eventTasks">
-            <EventTasks />
-          </PrivateRoute> */}
           <Route path="*">
             <PageNotFound />
           </Route>
         </Switch>
       </Router>
-      </UserInfo.Provider>
     </UserContext.Provider>
   );
 }

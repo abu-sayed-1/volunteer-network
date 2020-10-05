@@ -7,7 +7,7 @@ body{
 }
 
 .EventTasksChild_container img{
-  width: 100%;
+  width: 91%;
 }
 
 .row_container{
@@ -18,19 +18,18 @@ body{
 }
 
 .row_1{
-    /* margin-right: 9px; */
-    width: 400px;
-    margin: 13px;
+  width: 479px;
+  margin: 13px;
 }
 
 .row_container button{
-  position: relative;  
-  /* margin-top: 50px; */
-  left: 50%;
-  width: 60%;
-  height: 20%;
+  position: relative; 
+  top:20px;
+  left: 32%;
+  width: 72%;
+  height: 23%;
   border: none;
   outline: none;
   border-radius: 5px;
-  color: rgba(99, 92, 92, 0.856);
-}
+  color: rgba(99, 92, 92, 0.856);  
+  }

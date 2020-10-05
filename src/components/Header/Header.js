@@ -12,7 +12,7 @@ const Header = () => {
           <Navbar.Brand href="#"><img src={logo} alt=""/></Navbar.Brand>
                 <Nav className="ml-auto" >
                     <NavLink className="NavLink" to="/home">Home</NavLink>
-                    <NavLink className="NavLink" to="/jskasjd">donation</NavLink>
+                    <NavLink className="NavLink" to="/donation">donation</NavLink>
                     <NavLink className="NavLink" to="/events">events</NavLink>
                     <NavLink className="NavLink" to="/blog">Blog</NavLink>
                     <NavLink className="NavLink" to="/register">register</NavLink>

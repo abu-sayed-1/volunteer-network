@@ -8,14 +8,8 @@ import firebaseConfig from '../firebase.config'
 import { useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
 
-
-
-
-
 const Login = () => {
-
-
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const {loggedInUser,setLoggedInUser} = useContext(UserContext);
     const history = useHistory();
     const location = useLocation()
     let {from} = location.state || {form:{pathname:"/"}}
