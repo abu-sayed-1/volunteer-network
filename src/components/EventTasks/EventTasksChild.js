@@ -5,26 +5,17 @@ import "./EventTasksChild.css"
 
 
 const EventTasksChild = (props) => {
-    const {title, date, email, _id} = props.volunteerData;
-    // console.log(props.volunteerData)
-
-    // function deleteProduct(id){
-       
- 
-    //  }
-  
-     const volunteerId = (id) => {
-        fetch(`/delete/${id}`,{
-            method:'DELETE'
-          })
-          .then(res => res.json())
-          .then(result => {
-            console.log('delete successfully')
-          })
-     }
-
-
-
+    const { date, email, _id } = props.volunteerData;
+    const handleDelEvent = props.handleDelEvent;
+    const volunteerId = (id) => {
+        fetch(`http://localhost:3200/delete/${id}`, {
+            method: 'DELETE'
+        })
+            .then(result => {
+                handleDelEvent()
+                console.log(result, 'delete successfully')
+            })
+    }
 
 
     return (
@@ -32,21 +23,13 @@ const EventTasksChild = (props) => {
             <Row className="row_container row_1">
                 <Col><img src={EventTask} alt="" /></Col>
                 <Col>{date}
-                 <br/>
-                 {email}
-                 {/*  <button onclick="deleteProduct('${pd._id}')">delete</button> */}
-                <br />
+                    <br />
+                    {email}
+                    <br />
                     <button onClick={() => volunteerId(_id)}>Cancel</button>
                 </Col>
             </Row>
-{/* 
-            <Row className="row_container row_2">
-                <Col><img src={EventTask} alt="" /></Col>
-                <Col>2 of Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, soluta.
-                  <br />
-                    <button>Cancel</button>
-                </Col>
-            </Row> */}
+
         </div>
     );
 };

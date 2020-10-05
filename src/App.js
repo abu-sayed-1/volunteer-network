@@ -14,11 +14,14 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import EventTasks from './components/EventTasks/EventTasks';
 
 export const UserContext = createContext();
+export const UserInfo = createContext()
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState([])
+  const [ usersData, setUsersData] = useState([]);
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <UserInfo.Provider value={[usersData, setUsersData]}>
       <Router>
         <Header />
         <Switch>
@@ -48,6 +51,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      </UserInfo.Provider>
     </UserContext.Provider>
   );
 }
