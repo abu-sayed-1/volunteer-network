@@ -6,7 +6,6 @@ const PrivateRoute = ({ children, ...rest }) => {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
   return (
     <div>
-      <h1>thi is PrivateRoute</h1>
       <Route
         {...rest}
         render={({ location }) =>
